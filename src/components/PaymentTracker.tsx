@@ -1,14 +1,14 @@
 // components/PaymentTracker.tsx
-import { useState } from "react";
+// import { useState } from "react";
 import { useProjects } from "../context/ProjectContext";
-import type { Payment } from "../types";
+// import type { Payment } from "../types";
 import { DollarSign, Clock, CheckCircle, AlertCircle, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function PaymentTracker() {
-  const { projects, payments, addPayment, updatePayment, deletePayment } = useProjects();
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [editingPayment, setEditingPayment] = useState<Payment | null>(null);
+  const { projects, payments } = useProjects();
+  // const [isFormOpen, setIsFormOpen] = useState(false);
+  // const [editingPayment, setEditingPayment] = useState<Payment | null>(null);
 
   // Calculate payment statistics
   const totalEarnings = projects

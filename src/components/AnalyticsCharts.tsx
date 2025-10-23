@@ -4,7 +4,7 @@ import { TrendingUp, DollarSign, Clock, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AnalyticsCharts() {
-  const { projects, payments } = useProjects();
+  const { projects } = useProjects();
 
   // Calculate monthly earnings for the last 6 months
   const getMonthlyEarnings = () => {

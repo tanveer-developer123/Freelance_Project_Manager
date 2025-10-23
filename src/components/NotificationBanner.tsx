@@ -2,7 +2,7 @@
 import { useProjects } from "../context/ProjectContext";
 import { AlertTriangle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function NotificationBanner() {
   const { projects, payments } = useProjects();

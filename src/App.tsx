@@ -23,11 +23,14 @@ const App = () => {
               path="/"
               element={
                 <ProtectedRoute>
-                  <Navbar />
-                  <Home />
+                  <div>
+                    <Navbar />
+                    <Home />
+                  </div>
                 </ProtectedRoute>
               }
             />
+
           </Routes>
         </Router>
       </AuthProvider>

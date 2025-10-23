@@ -1,15 +1,14 @@
 // components/ProjectDetailView.tsx
 import { useState } from "react";
 import type { Project, Task, ProjectFile } from "../types";
-import { 
-  Calendar, 
-  DollarSign, 
-  User, 
-  Edit, 
-  Trash2, 
-  Plus, 
-  CheckCircle, 
-  Clock,
+import {
+  Calendar,
+  DollarSign,
+  User,
+  Edit,
+  Trash2,
+  Plus,
+  CheckCircle,
   FileText,
   Upload,
   X
@@ -27,7 +26,7 @@ export default function ProjectDetailView({ project, onEdit, onDelete, onClose }
   const [activeTab, setActiveTab] = useState('overview');
   const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState<Task[]>(project.tasks || []);
-  const [files, setFiles] = useState<ProjectFile[]>(project.files || []);
+  const [files] = useState<ProjectFile[]>(project.files || []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString();
@@ -57,7 +56,7 @@ export default function ProjectDetailView({ project, onEdit, onDelete, onClose }
   };
 
   const toggleTask = (taskId: string) => {
-    setTasks(tasks.map(task => 
+    setTasks(tasks.map(task =>
       task.id === taskId ? { ...task, completed: !task.completed } : task
     ));
   };
@@ -125,11 +124,10 @@ export default function ProjectDetailView({ project, onEdit, onDelete, onClose }
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-4 font-medium transition-colors ${
-                activeTab === tab.id
+              className={`flex items-center space-x-2 px-6 py-4 font-medium transition-colors ${activeTab === tab.id
                   ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400'
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              }`}
+                }`}
             >
               <tab.icon className="w-5 h-5" />
               <span>{tab.label}</span>
@@ -179,11 +177,10 @@ export default function ProjectDetailView({ project, onEdit, onDelete, onClose }
 
               {/* Status */}
               <div className="flex items-center space-x-3">
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  project.status === 'completed' 
+                <span className={`px-3 py-1 rounded-full text-sm font-medium ${project.status === 'completed'
                     ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300'
                     : 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-300'
-                }`}>
+                  }`}>
                   {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
                 </span>
                 {isOverdue && (
@@ -225,11 +222,10 @@ export default function ProjectDetailView({ project, onEdit, onDelete, onClose }
                   >
                     <button
                       onClick={() => toggleTask(task.id)}
-                      className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
-                        task.completed
+                      className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${task.completed
                           ? 'bg-green-500 border-green-500 text-white'
                           : 'border-gray-300 dark:border-gray-600'
-                      }`}
+                        }`}
                     >
                       {task.completed && <CheckCircle className="w-3 h-3" />}
                     </button>
