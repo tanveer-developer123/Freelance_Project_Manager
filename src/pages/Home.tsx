@@ -1,11 +1,12 @@
-
+import { ProjectProvider } from "../context/ProjectContext";
+import TabbedDashboard from "../components/TabbedDashboard";
 
 const Home = () => {
   return (
-    <div>
-      Salam
-    </div>
-  )
-}
+    <ProjectProvider>
+      <TabbedDashboard />
+    </ProjectProvider>
+  );
+};
 
-export default Home
+export default Home;
